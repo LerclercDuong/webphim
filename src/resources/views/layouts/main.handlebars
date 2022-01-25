@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" /> --}}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
+    <title>PHIM MỚI | PHIM HD | PHIMNEWS | PHIM CHIẾU RẠP</title>
+    <style>
+        html{
+            font-size:16px;
+            margin: 0;
+          background-color:rgb(19, 19, 19); 
+        }
+         body{
+         margin: 0;
+         padding:0;
+          background-color:rgb(19, 19, 19); 
+    }
+    .main-color {
+    color: var(--main-color);
+}
+      :root {
+    --main-color: rgb(253, 186, 0);
+    --body-bg: #181616;
+    --box-bg: #221f1f;
+    --text-color: #ffffff;
+
+    --nav-height: 60px;
+    --space-top: 30px;
+}
+#login{
+    text-decoration: none;
+    color:rgb(255, 255, 255); 
+    background-color:rgb(253, 186, 0); 
+    font-weight:500; padding:0.3rem 0.8rem; 
+    border-radius: 0.5rem;
+}
+#lg:hover a{
+    background-color:rgb(214, 214, 214); 
+    color:rgb(0, 0, 0);
+}
+
+   
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+[class*="col-"] {
+    padding: 0 15px;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/* MEDIUM SCREEN */
+
+@media only screen and (max-width: 1280px) {
+    .col-md-1 {
+        width: 8.33%;
+    }
+
+    .col-md-2 {
+        width: 16.66%;
+    }
+
+    .col-md-3 {
+        width: 25%;
+    }
+
+    .col-md-4 {
+        width: 33.33%;
+    }
+
+    .col-md-5 {
+        width: 41.66%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-7 {
+        width: 58.33%;
+    }
+
+    .col-md-8 {
+        width: 66.66%;
+    }
+
+    .col-md-9 {
+        width: 75%;
+    }
+
+    .col-md-10 {
+        width: 83.33%;
+    }
+
+    .col-md-11 {
+        width: 91.66%;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+/* SMALL SCREEN */
+
+@media only screen and (max-width: 850px) {
+    .col-sm-1 {
+        width: 8.33%;
+    }
+
+    .col-sm-2 {
+        width: 16.66%;
+    }
+
+    .col-sm-3 {
+        width: 25%;
+    }
+
+    .col-sm-4 {
+        width: 33.33%;
+    }
+
+    .col-sm-5 {
+        width: 41.66%;
+    }
+
+    .col-sm-6 {
+        width: 50%;
+    }
+
+    .col-sm-7 {
+        width: 58.33%;
+    }
+
+    .col-sm-8 {
+        width: 66.66%;
+    }
+
+    .col-sm-9 {
+        width: 75%;
+    }
+
+    .col-sm-10 {
+        width: 83.33%;
+    }
+
+    .col-sm-11 {
+        width: 91.66%;
+    }
+
+    .col-sm-12 {
+        width: 100%;
+    }
+}
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(26, 26, 26); ">
+ <a class="navbar-brand" href="/" style="color: rgb(253, 186, 0); font-weight:750; font-size:2rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6voYewn01nH8yWVbBPs2idp3GaMbGvZHF9Q&usqp=CAU" style="width:2.5rem; height:2.5rem;" class="d-inline-block align-top" alt="">
+  <span style="color:white;">FILM</span>NEWS<span style="font-size:1rem;">.net</span>
+  </a>
+  <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" style="" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon " ></span>
+  </button>
+
+  <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Thể loại
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Phim hành động</a>
+          <a class="dropdown-item" href="#">Phim tình cảm</a>
+          <a class="dropdown-item" href="#">Phim viễn tưởng</a>
+          <a class="dropdown-item" href="#">Phim kinh dị</a>
+          {{!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> --}}
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  style="color:white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Quốc gia
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+          <a class="dropdown-item" href="#">Phim Âu Mỹ</a>
+          <a class="dropdown-item" href="#">Phim Trung Quốc</a>
+          <a class="dropdown-item" href="#">Phim Hàn Quốc</a>
+          <a class="dropdown-item" href="#">Phim Nhật Bản</a>
+          <a class="dropdown-item" href="#">Phim Âu Mỹ</a>
+          
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" style="color:white;">Phim chiếu rạp</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="get" action="/search">
+      <input class="form-control mr-sm-2" style="width:18rem; background-color:#221f1f; font-size:1rem; height:2rem; border-radius:1rem; color:rgb(255, 255, 255);" type="search" placeholder="Search" name="result" autocomplete="off" aria-label="Search">
+      <button id="search-button" class="btn btn-outline-success btn-outline-warning my-2 my-sm-0" style="color:rgb(255, 255, 255); border:1px solid rgb(248, 235, 46); border-radius:1rem; font-size:1rem;" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+{{!-- -------------------------------- --}}
+
+
+
+
+{{!-- --------------------------------------------- --}}
+
+
+
+{{!-- 
+<nav class="navbar navbar-light" style="background-color: rgb(26, 26, 26); max-height:4.2rem; ">
+  <a class="navbar-brand" href="/" style="color: rgb(253, 186, 0); font-weight:750; font-size:2rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6voYewn01nH8yWVbBPs2idp3GaMbGvZHF9Q&usqp=CAU" style="width:2.5rem; height:2.5rem;" class="d-inline-block align-top" alt="">
+  <span style="color:white;">FILM</span>NEWS<span style="font-size:1rem;">.net</span>
+  </a>
+  <div id="lg">  <a id="login" class=" mr-2" href="/login" >Đăng nhập</a>  </div>
+ 
+</nav> --}}
+
+
+
+
+
+<div style="background-color:rgb(19, 19, 19); ">
+  {{{body}}}
+</div>
+
+ <footer class="section" style=" padding-top:10%;overflow: hidden; ">
+        <div class="container" style="color:#ffffff; margin:0 auto;">
+            <div class="row">
+                <div class="col-4 col-md-6 col-sm-12">
+                    <div class="content">
+                        <a href="#" class="logo" style="color:#c5c5c5">
+                            <i class='bx bx-movie-play bx-tada ' ></i>FILM<span class="main-color">NEWS</span>
+                        </a>
+                        <p>
+                            Trang web xem phim nhanh, mong các bạn ủng hộ, đừng quăng gạch hay gậy gì nhé, kiếm tiền mua chút cháo uống cafe thôi :v
+                        </p>
+                        <div class="social-list">
+                            <a href="#" class="social-item">
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                            <a href="#" class="social-item">
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                            <a href="#" class="social-item">
+                                <i class="bx bxl-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Filmnews</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">My profile</a></li>
+                                    <li><a href="#">Pricing plans</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Browse</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">My profile</a></li>
+                                    <li><a href="#">Pricing plans</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{{!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
+

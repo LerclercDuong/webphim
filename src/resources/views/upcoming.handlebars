@@ -1,0 +1,67 @@
+<br>
+<span class="ml-5 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+   Sắp ra mắt
+</span>
+
+               <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-evenly;">
+                  
+                   {{#each upcoming}}
+            <div  style="margin:1rem 0.5rem;" >
+                <!-- MOVIE ITEM -->
+                <div class="film-card">
+                    <a href="/watch?id={{this.id}}">
+                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:22rem;">
+                         
+                    </a>
+                  
+                    {{!-- <div >
+                        <div style="color: #ffffff;">
+                           {{this.title}}
+                        </div>
+                      
+                    </div> --}}
+                </div>
+                {{!-- <span style="color:#ffffff; position:absolute; width:20%; text-align:center;">{{this.title}}</span> --}}
+            </div> {{/each}}
+               </div>
+
+               <div id="pagenumber" style="display:flex; justify-content:center; margin-top:1rem; ">
+                   <a class="tagname" href="/upcoming?page=1">1</a>
+                   <a class="tagname" href="/upcoming?page=2">2</a>
+                   <a class="tagname" href="/upcoming?page=3">3</a>
+                   <a class="tagname" href="/upcoming?page=4">4</a>
+                   <a class="tagname" href="/upcoming?page=5">5</a>
+                   <a class="tagname" href="/upcoming?page=6">6</a>
+                   <a class="tagname" href="/upcoming?page=7">7</a>
+                   <a class="tagname" href="/upcoming?page=8">8</a>
+                   <a class="tagname" href="/upcoming?page=9">9</a>
+                   <a class="tagname" href="/upcoming?page=10">10</a>
+               </div>
+
+
+<style>
+#pagenumber a{
+ color: #f8f8f8;
+ margin: 0 1rem;
+ padding: 0 0.4rem;
+}
+.yellow {
+    border: 2px solid rgba(255, 223, 40, 0.904);
+    border-radius:3px;
+  
+}
+.film-card img{
+    transition: transform 0.3s linear;
+}
+.film-card:hover img {
+    transform: scale(1.2);
+}
+</style>
+
+<script>
+    const page = {{page}}
+  
+    const plist = document.getElementsByClassName('tagname')
+    plist[page-1].classList.add('yellow')
+
+</script>
