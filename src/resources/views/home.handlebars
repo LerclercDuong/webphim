@@ -30,14 +30,14 @@
    Phổ biến  
 </span>
 <a class="mr-2 mt-2" href="/phobien?page=1" style="float:right;"> <span style="color: #ffeb3b; font-size:0.9rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; ">
+               <div class="list" style="display:flex; justify-content:space-between;">
                   
                    {{#each popular}}
-            <div  style="margin:0 0.5rem;" >
+            <div class="film-card-container" style="margin:0 0.5rem;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card">
                     <a href="/watch?id={{this.id}}">
-                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:20rem;">
+                          <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:20rem; " >
                           {{!-- <span style="">{{this.title}}</span> --}}
                     </a>
                   
@@ -58,10 +58,10 @@
    Top rated 
 </span>
 <a class="mr-2 mt-2" href="/toprated?page=1" style="float:right;"> <span style="color: #ffec3e; font-size:0.9rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex;  ">
+               <div class="list" style="display:flex; justify-content:space-between;   ">
                   
                    {{#each toprated}}
-            <div  style="margin:0 0.5rem;" >
+            <div  class="film-card-container" style="margin:0 0.5rem;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card" style=" ">
                     <a href="/watch?id={{this.id}}">
@@ -82,10 +82,10 @@
    Phim lẻ hay nhất
 </span>
 <a class="mr-2 mt-2" href="/bestaction?page=1" style="float:right;"> <span style="color: #ffec40; font-size:0.9rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex;  ">
+               <div class="list" style="display:flex; justify-content:space-between; ">
                   
                    {{#each action}}
-            <div  style="margin:0 0.5rem;" >
+            <div  class="film-card-container" style="margin:0 0.5rem;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card" style=" ">
                     <a href="/watch?id={{this.id}}">
@@ -114,14 +114,14 @@
    Sắp ra mắt 
 </span>
 <a class="mr-2 mt-2" href="/upcoming?page=1" style="float:right;"> <span style="color: #ffed4a; font-size:0.9rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; ">
+               <div class="list" style="display:flex; justify-content:space-between; ">
                   
                    {{#each upcoming}}
-            <div  style="margin:0 0.5rem;" >
+            <div  class="film-card-container" style="margin:0 0.5rem;" >
                 <!-- MOVIE ITEM -->
-                <div class="film-card" style="  ">
+                <div  class="film-card" style="  ">
                     <a href="/watch?id={{this.id}}">
-                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:20rem; ">
+                          <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:20rem; ">
                 
                           {{!-- <div style=" background-color:#eeda26; color:#ffffff; position:absolute;bottom: 8px; left: 16px;">{{this.title}}</div> --}}
                        
@@ -600,17 +600,34 @@ a.movie-item:hover {
 
     }
 
-@media only screen and (max-width: 480px) {
-    html {
-        font-size: 3px;
-    }
-    .list{
-        flex-wrap: wrap;
-    }
-     .film-card img{
-         width: 200rem;
-     }
+
+
+    @media only screen and (max-width: 480px) {
     
+  .list{
+        display:flex;
+    
+        margin:1px;
     }
+.film-card-container{
+    width: 48% !important;
+   
+      
+
+}
+    .film-card{
+         max-width: 200% !important;
+         flex-basis: 50% !important;
+         flex-grow: 5 !important;
+    }
+   .posters{
+       
+   }
+    .film-card img{
+         margin-top: 1rem;
+      width: 100% !important;
+      height:35rem !important;
+     }
+}
  </style>
 

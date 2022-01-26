@@ -9,7 +9,7 @@
 <br>
 <br>
 <span class="ml-4 mt-4" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
-   Có lẽ bạn cũng muốn xem 
+   Có thể bạn cũng muốn xem 
 </span>
 
                <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-evenly;">
@@ -54,7 +54,7 @@
 
     }
 
-@media only screen and (max-width: 480px) {
+{{!-- @media only screen and (max-width: 480px) {
     html {
         font-size: 3px;
     }
@@ -65,5 +65,18 @@
          width: 200rem;
      }
     
+    } --}}
+    @media (max-width: 480px) {
+  .list{
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
     }
+    .film-card img{
+         margin-top: 1rem;
+         width:40rem;
+         height:70rem;
+     }
+}
 </style>
