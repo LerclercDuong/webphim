@@ -1,16 +1,16 @@
 <br>
-<span class="ml-5 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+<span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
    Phổ biến 
 </span>
 
-               <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-evenly;">
+               <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-between;">
                   
                    {{#each popular}}
-            <div  style="margin:1rem 0.5rem;" >
+            <div class="film-card-container" style="margin:0.5rem 0.2rem;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card">
                     <a href="/watch?id={{this.id}}">
-                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:22rem;">
+                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:17rem; height:23rem;">
                          
                     </a>
                   
@@ -25,7 +25,7 @@
             </div> {{/each}}
                </div>
 
-               <div id="pagenumber" style="display:flex; justify-content:center; margin-top:1rem; ">
+               <div id="pagenumber" style="display:flex; justify-content:center; margin-top:3rem;">
                    <a class="tagname" href="/phobien?page=1">1</a>
                    <a class="tagname" href="/phobien?page=2">2</a>
                    <a class="tagname" href="/phobien?page=3">3</a>
@@ -55,6 +55,38 @@
 }
 .film-card:hover img {
     transform: scale(1.2);
+}
+
+
+  @media only screen and (max-width: 480px) {
+    
+ html {
+     font-size:9px;
+ }
+.film-card-container{
+    width: 48% !important;
+    
+      
+
+}
+.list{
+        display:flex;
+    
+        margin:1px;
+    }
+    .film-card{
+         max-width: 100% !important;
+         flex-basis: 50% !important;
+         flex-grow: 5 !important;
+    }
+   .posters{
+       
+   }
+    .film-card img{
+         margin-top: 1rem;
+      width: 100% !important;
+      height:30rem !important;
+     }
 }
 </style>
 

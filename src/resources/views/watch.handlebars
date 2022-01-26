@@ -8,18 +8,18 @@
 </div>
 <br>
 <br>
-<span class="ml-4 mt-4" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+<span class="ml-2 mt-4" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
    Có thể bạn cũng muốn xem 
 </span>
 
-               <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-evenly;">
+               <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-between;">
                   
                    {{#each similar}}
-            <div  style="margin:1rem 0.5rem;" >
+            <div  style="margin:0.5rem 0.5rem;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card">
                     <a href="/watch?id={{this.id}}">
-                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:16rem; height:22rem;">
+                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="width:17rem; height:23rem;">
                          
                     </a>
                   

@@ -29,8 +29,8 @@
 <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
    Phổ biến  
 </span>
-<a class="mr-2 mt-2" href="/phobien?page=1" style="float:right;"> <span style="color: #ffeb3b; font-size:0.9rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; justify-content:space-between;">
+<a class="mr-2 mt-2" href="/phobien?page=1" style="float:right;"> <span class="xemthem" style="color: #ffeb3b; font-size:1rem; " >Xem thêm</span></a>
+          <br>     <div class="list" style="display:flex; justify-content:space-between;">
                   
                    {{#each popular}}
             <div class="film-card-container" style="margin:0 0.5rem;" >
@@ -57,7 +57,7 @@
                <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
    Top rated 
 </span>
-<a class="mr-2 mt-2" href="/toprated?page=1" style="float:right;"> <span style="color: #ffec3e; font-size:0.9rem; " >Xem thêm</span></a>
+<a class="mr-2 mt-2" href="/toprated?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec3e; font-size:1rem; " >Xem thêm</span></a>
                <div class="list" style="display:flex; justify-content:space-between;   ">
                   
                    {{#each toprated}}
@@ -81,7 +81,7 @@
                <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
    Phim lẻ hay nhất
 </span>
-<a class="mr-2 mt-2" href="/bestaction?page=1" style="float:right;"> <span style="color: #ffec40; font-size:0.9rem; " >Xem thêm</span></a>
+<a class="mr-2 mt-2" href="/bestaction?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec40; font-size:1rem; " >Xem thêm</span></a>
                <div class="list" style="display:flex; justify-content:space-between; ">
                   
                    {{#each action}}
@@ -113,7 +113,7 @@
                <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
    Sắp ra mắt 
 </span>
-<a class="mr-2 mt-2" href="/upcoming?page=1" style="float:right;"> <span style="color: #ffed4a; font-size:0.9rem; " >Xem thêm</span></a>
+<a class="mr-2 mt-2" href="/upcoming?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffed4a; font-size:1rem; " >Xem thêm</span></a>
                <div class="list" style="display:flex; justify-content:space-between; ">
                   
                    {{#each upcoming}}
@@ -603,7 +603,9 @@ a.movie-item:hover {
 
 
     @media only screen and (max-width: 480px) {
-    
+    {{!-- .xemthem{
+        font-size: 2rem !important;
+    } --}}
   .list{
         display:flex;
     
