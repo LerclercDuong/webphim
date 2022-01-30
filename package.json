@@ -11,8 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.6",
     "express": "^4.17.2",
     "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
     "moviedb": "^0.2.12",
     "moviedb-promise": "^3.1.13",

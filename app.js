@@ -7,6 +7,29 @@ const axios = require('axios')
 const port = process.env.PORT || 5000
 const { MovieDb } = require('moviedb-promise')
 const moviedb = new MovieDb('2c6f79941461abf6df2d3d5cabfc9f81')
+var cookie = require('cookie');
+let COOKIE_OPTIONS = { httpOnly: true, sameSite: 'None', secure: true };
+const session = require('express-session');
+var cookieParser = require('cookie-parser');
+app.use(cookieParser())
+
+
+
+const sessionConfig = {
+  secret: 'MYSECRET',
+  name: 'appName',
+  resave: false,
+  saveUninitialized: false,
+  cookie : {
+    sameSite: 'none', 
+    secure: true
+  }
+};
+
+
+app.use(session(sessionConfig));
+
+
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views',path.join(__dirname, 'src/resources/views'))
@@ -20,10 +43,10 @@ app.engine('handlebars', handlebars())
 app.set('view engine','handlebars')
 
 
-
 // // mới
 app.get('/', function (req, res){
   // getPOPULARFILM
+ 
 const getpopularfilm = axios({
     method: 'get',
     url: 'https://api.themoviedb.org/3/movie/popular?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
@@ -112,6 +135,14 @@ const getpopularfilm = axios({
  })
 
 app.get('/watch', (req,res) => {
+  
+const getDetail = axios({
+  method: 'get',
+  url: `https://api.themoviedb.org/3/movie/${req.query.id}?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US`
+})
+.then((response) => {
+  return response.data
+})
  const getsimilar = axios({
     method: 'get',
     url: `https://api.themoviedb.org/3/movie/${req.query.id}/similar?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1`
@@ -120,10 +151,16 @@ app.get('/watch', (req,res) => {
       return response.data.results
   })
 
+
+
   const renderFilm = async function(){
+    const details = await getDetail;
     const similar = await getsimilar;
-  
-    res.render('watch',{similar:similar, id:req.query.id})
+    const id = req.query.id
+  const url = `https://www.2embed.ru/embed/tmdb/movie?id=${id}`
+  res.cookie('Set-Cookie',{domain:'https://www.2embed.ru' ,SameSite: 'none', Secure: true})
+    res.render('watch',{similar:similar, url:url, details:details})
+    
 }
 renderFilm()
 
