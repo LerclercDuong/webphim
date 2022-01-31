@@ -8,11 +8,11 @@
                     <div class="overlay"></div>
                     <div class="hero-slide-item-content">
                         <div class="item-content-wraper">
-                            <div class="" style="font-size:3rem; margin-bottom:0.2rem; max-width:90%; max-height:80%;">
+                            <div class="" style="font-size:3rem; margin-bottom:0.2rem; max-width:90%; max-height:80%; font-weight:600;">
                                 {{main.title}}
                               
                             </div>
-                       <span style="font-size:1rem;">{{main.overview}}</span>
+                       <span style="font-size:1rem; padding-top:1rem; padding-bottom:0.5rem;">{{main.overview}}</span>
                             <div class="">
                                 <a href="/watch?id={{main.id}}" class="btn btn-hover mt-3">
                                     <i class="bx bxs-right-arrow"></i>
@@ -630,6 +630,36 @@ a.movie-item:hover {
       width: 100% !important;
       height:35rem !important;
      }
+     .hero-slide-item {
+    padding-top: 60%;
+    position: relative;
+    overflow: hidden;
+}
+.hero-slide-item img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.item-content-wraper {
+    padding-left: 3rem;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+#poster2 {
+    width: 37% !important;
+    height: 84% !important;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    margin-top: 5% !important;
+    margin-left: 10% !important;
+}
 }
  </style>
 
