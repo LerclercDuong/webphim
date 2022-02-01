@@ -46,10 +46,10 @@ app.set('view engine','handlebars')
 // // mới
 app.get('/', function (req, res){
   // getPOPULARFILM
-  const getVN = axios({
-    method: 'get',
-    url: `https://api.themoviedb.org/3/movie/${req.query.id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
-  })
+  // const getVN = axios({
+  //   method: 'get',
+  //   url: `https://api.themoviedb.org/3/movie/${req.query.id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
+  // })
 const getpopularfilm = axios({
     method: 'get',
     url: 'https://api.themoviedb.org/3/movie/popular?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
@@ -106,14 +106,15 @@ const getpopularfilm = axios({
   })
 
  const renderFilm= async function(){
-      const popular = await getpopularfilm;
+
+     const popular = await getpopularfilm;
       const action = await getactionfilm;
       const toprated = await gettopratedfilm;
       const upcoming = await getupcomingfilm;
       const main = popular[0]
       const id = main.id;
       
-       axios({
+      axios({
         method: 'get',
         url: `https://api.themoviedb.org/3/movie/${id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
       }).then(function (response) {
@@ -124,6 +125,7 @@ const getpopularfilm = axios({
        const vietsub = final[0].data
        res.render('home', {main:main, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:vietsub})
       })
+   
       
  }
  renderFilm()

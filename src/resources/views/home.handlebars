@@ -20,20 +20,20 @@
                                 </a>
                             </div>
                         </div>
-                        <img id="poster2" style="width:25%; height:90%; position:relative; margin-top:2.4%; margin-left:22%; " src='https://image.tmdb.org/t/p/original/{{main.poster_path}}' alt="">
+                        <img id="poster2" style="width:26%; height:90%; position:relative; margin-top:2.4%; margin-left:22%; " src='https://image.tmdb.org/t/p/original/{{main.poster_path}}' alt="">
                     </div>
                    
                 </div>
                
 <br>
-<span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+<span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Phổ biến  
 </span>
 <a class="mr-2 mt-2" href="/phobien?page=1" style="float:right;"> <span class="xemthem" style="color: #ffeb3b; font-size:1rem; " >Xem thêm</span></a>
-          <br>     <div class="list" style="display:flex; justify-content:space-between;">
+               <div class="list" style="display:flex; justify-content:space-between;">
                   
                    {{#each popular}}
-            <div class="film-card-container" style="margin:0 0.5rem;" >
+            <div class="film-card-container" style="margin:0 0.4rem;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card">
                     <a href="/watch?id={{this.id}}">
@@ -54,7 +54,7 @@
  {{!-- TOPRATED --}}
 <br>
 
-               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Top rated 
 </span>
 <a class="mr-2 mt-2" href="/toprated?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec3e; font-size:1rem; " >Xem thêm</span></a>
@@ -78,7 +78,7 @@
       {{!-- Phim 2 --}}
 
       <br>
-               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Phim lẻ hay nhất
 </span>
 <a class="mr-2 mt-2" href="/bestaction?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec40; font-size:1rem; " >Xem thêm</span></a>
@@ -110,7 +110,7 @@
 
 
                <br>
-               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600;">
+               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Sắp ra mắt 
 </span>
 <a class="mr-2 mt-2" href="/upcoming?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffed4a; font-size:1rem; " >Xem thêm</span></a>
@@ -606,6 +606,7 @@ a.movie-item:hover {
     {{!-- .xemthem{
         font-size: 2rem !important;
     } --}}
+   
   .list{
         display:flex;
     
@@ -631,7 +632,7 @@ a.movie-item:hover {
       height:35rem !important;
      }
      .hero-slide-item {
-    padding-top: 60%;
+    padding-top: 65%;
     position: relative;
     overflow: hidden;
 }
@@ -644,7 +645,7 @@ a.movie-item:hover {
 }
 .item-content-wraper {
     padding-left: 3rem;
-    width: 50%;
+    width: 52%;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
@@ -652,13 +653,13 @@ a.movie-item:hover {
     position: relative;
 }
 #poster2 {
-    width: 37% !important;
-    height: 84% !important;
+    width: 40% !important;
+    height: 85% !important;
     position: relative;
     align-items: center;
     align-content: center;
     margin-top: 5% !important;
-    margin-left: 10% !important;
+    margin-left: 5% !important;
 }
 }
  </style>
