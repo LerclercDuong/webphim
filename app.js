@@ -46,13 +46,16 @@ app.set('view engine','handlebars')
 // // mới
 app.get('/', function (req, res){
   // getPOPULARFILM
- 
+  const getVN = axios({
+    method: 'get',
+    url: `https://api.themoviedb.org/3/movie/${req.query.id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
+  })
 const getpopularfilm = axios({
     method: 'get',
     url: 'https://api.themoviedb.org/3/movie/popular?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
   })
  .then(function(response){
-   var rdm = Math.round(Math.random() *10);
+   var rdm = Math.round(Math.random() *15);
    const main = response.data.results[rdm];
    const popular = []
    for(i=rdm;i<rdm+6; i++){
@@ -80,7 +83,7 @@ const getpopularfilm = axios({
     url:'https://api.themoviedb.org/3/movie/top_rated?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
   })
   .then(function(response){
-    var rdm = Math.round(Math.random() *10);
+    var rdm = Math.round(Math.random() *12);
     const toprate = []
     for(i=rdm;i<rdm+6; i++){
       toprate.push(response.data.results[i])
@@ -94,7 +97,7 @@ const getpopularfilm = axios({
     url:'https://api.themoviedb.org/3/movie/upcoming?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
   })
   .then(function(response){
-    var rdm = Math.round(Math.random() *10);
+    var rdm = Math.round(Math.random() *14);
     const upcoming = []
     for(i=rdm;i<rdm+6; i++){
       upcoming.push(response.data.results[i])
@@ -108,7 +111,20 @@ const getpopularfilm = axios({
       const toprated = await gettopratedfilm;
       const upcoming = await getupcomingfilm;
       const main = popular[0]
-      res.render('home', {main:main, popular:popular, action:action, toprated:toprated, upcoming:upcoming})
+      const id = main.id;
+      
+       axios({
+        method: 'get',
+        url: `https://api.themoviedb.org/3/movie/${id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
+      }).then(function (response) {
+        const vi = response.data.translations
+        const final = vi.filter(function(e){
+          return e.iso_3166_1==='VN'
+        })
+       const vietsub = final[0].data
+       res.render('home', {main:main, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:vietsub})
+      })
+      
  }
  renderFilm()
   
@@ -121,7 +137,7 @@ const getpopularfilm = axios({
     url: 'https://api.themoviedb.org/3/list/28?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US'
   })
  .then(function(response){
-   var rdm = Math.round(Math.random() *10);
+   var rdm = Math.round(Math.random() *13);
    const action = []
    for(i=rdm;i<rdm+6; i++){
      action.push(response.data.results[i])
