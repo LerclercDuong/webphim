@@ -14,12 +14,14 @@
 </div>
 </div>
 <br>
-<span class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600; margin-top:10rem;">
+<br>
+<span id="more" class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600; margin-top:10rem;">
    Có thể bạn cũng muốn xem 
 </span>
 
-               <div class="list" style="display:flex;   flex-wrap: wrap; justify-content:space-between;">
+               <div class="list" style="display:flex; margin:0;  flex-wrap: wrap; justify-content:space-between;">
                   
+
                    {{#each similar}}
             <div class="film-card-container" style="margin:0.5rem 0.5rem;" >
                 <!-- MOVIE ITEM -->
@@ -104,11 +106,14 @@
          flex-basis: 50% !important;
          flex-grow: 5 !important;
     }
+    #more{
+        font-size:2rem !important;
+    }
    .posters{
        
    }
     .film-card img{
-         margin-top: 1rem;
+       
       width: 100% !important;
       height:30rem !important;
      }
