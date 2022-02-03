@@ -111,9 +111,9 @@ const getpopularfilm = axios({
       const action = await getactionfilm;
       const toprated = await gettopratedfilm;
       const upcoming = await getupcomingfilm;
-      const main = popular[0]
+      const main = popular[1]
       const id = main.id;
-      
+   
       axios({
         method: 'get',
         url: `https://api.themoviedb.org/3/movie/${id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
@@ -162,7 +162,8 @@ app.get('/watch', (req,res) => {
     const final = vni.filter(function(e){
       return e.iso_3166_1==='VN'
     })
-    return final[0].data
+    return final
+   
   })
 const getDetail = axios({
   method: 'get',
@@ -182,10 +183,16 @@ const getDetail = axios({
 
 
   const renderFilm = async function(){
-    const getVietnamese = await getVN;
+    const final = await getVN;
     const details = await getDetail;
     const similar = await getsimilar;
     const id = req.query.id
+    var getVietnamese = {}
+    if(final[0] === undefined){
+     getVietnamese = details
+    }else {
+       getVietnamese =  final[0].data
+    }
   const url = `https://www.2embed.ru/embed/tmdb/movie?id=${id}`
   res.cookie('Set-Cookie',{domain:'https://www.2embed.ru' ,SameSite: 'none', Secure: true})
     res.render('watch',{similar:similar, url:url, details:details, vietnamese: getVietnamese})
