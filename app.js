@@ -55,7 +55,7 @@ const getpopularfilm = axios({
     url: 'https://api.themoviedb.org/3/movie/popular?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
   })
  .then(function(response){
-   var rdm = Math.round(Math.random() *15);
+   var rdm = Math.round(Math.random() *13);
    const main = response.data.results[rdm];
    const popular = []
    for(i=rdm;i<rdm+6; i++){
@@ -122,8 +122,14 @@ const getpopularfilm = axios({
         const final = vi.filter(function(e){
           return e.iso_3166_1==='VN'
         })
-       const vietsub = final[0].data
-       res.render('home', {main:main, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:vietsub})
+        var getVietnamese = {}
+    if(final[0] === undefined){
+     getVietnamese = main
+    }else {
+       getVietnamese =  final[0].data
+    }
+       
+       res.render('home', {main:main, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese})
       })
    
       

@@ -3,8 +3,11 @@
         <div class="hero-slide">
             <div class="owl-carousel carousel-nav-center" id="hero-carousel">
                 <!-- SLIDE ITEM -->
-                <div class="hero-slide-item">
+                 
+                <div class="hero-slide-item"> 
+                   
                     <img src='https://image.tmdb.org/t/p/original/{{main.backdrop_path}}' alt="">
+                   
                     <div class="overlay"></div>
                     <div class="hero-slide-item-content">
                         <div class="item-content-wraper">
@@ -17,14 +20,24 @@
                                 <a href="/watch?id={{main.id}}" class="btn btn-hover mt-3">
                                     <i class="bx bxs-right-arrow"></i>
                                     <span>Xem ngay</span>
-                                </a>
+                                </a> 
+                               
                             </div>
                         </div>
                         <img id="poster2" style="width:26%; height:90%; position:relative; margin-top:2.4%; margin-left:22%; " src='https://image.tmdb.org/t/p/original/{{main.poster_path}}' alt="">
+              
                     </div>
-                   
+                  
                 </div>
                
+  <div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+  
 <br>
 <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Phổ biến  
@@ -137,6 +150,18 @@
                
 
  <style>
+    .dot {
+        position: relative;
+        bottom: 25px;
+  cursor: pointer;
+  height: 1rem;
+  width: 1rem;
+  margin: 0 5px;
+  background-color: rgb(185, 185, 185, 0.7);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
      .titleLe{
          display: none;
          transition-delay: 2s;
