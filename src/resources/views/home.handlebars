@@ -3,39 +3,39 @@
         <div class="hero-slide">
             <div class="owl-carousel carousel-nav-center" id="hero-carousel">
                 <!-- SLIDE ITEM -->
-                 
-                <div class="hero-slide-item"> 
+                 {{#each main}}
+                <div class="slide myslide hero-slide-item" style="transition:  0.6s ease;"> 
                    
-                    <img src='https://image.tmdb.org/t/p/original/{{main.backdrop_path}}' alt="">
+                    <img src='https://image.tmdb.org/t/p/original/{{this.backdrop_path}}' alt="">
                    
                     <div class="overlay"></div>
                     <div class="hero-slide-item-content">
                         <div class="item-content-wraper">
                             <div class="" style="font-size:3rem; margin-bottom:0.2rem; max-width:90%; max-height:80%; font-weight:600;">
-                                {{vietsub.title}}
+                                {{this.title}}
                               
                             </div>
-                       <span style="font-size:1rem; padding-top:1rem; padding-bottom:0.5rem;">{{vietsub.overview}}</span>
+                       <span style="font-size:1rem; padding-top:1rem; padding-bottom:0.5rem;">{{this.overview}}</span>
                             <div class="">
-                                <a href="/watch?id={{main.id}}" class="btn btn-hover mt-3">
+                                <a href="/watch?id={{this.id}}" class="btn btn-hover mt-3">
                                     <i class="bx bxs-right-arrow"></i>
                                     <span>Xem ngay</span>
                                 </a> 
                                
                             </div>
                         </div>
-                        <img id="poster2" style="width:26%; height:90%; position:relative; margin-top:2.4%; margin-left:22%; " src='https://image.tmdb.org/t/p/original/{{main.poster_path}}' alt="">
+                        <img id="poster2" style="width:26%; height:90%; position:relative; margin-top:2.4%; margin-left:22%; " src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="">
               
                     </div>
                   
                 </div>
-               
+               {{/each}}
   <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
 </div>
   
 <br>
@@ -147,20 +147,61 @@
 
  
 
-               
+               <script>
+                  
+                   const dot = document.getElementsByClassName('dot');
+                   const slide = document.getElementsByClassName('myslide');
+                 
+                   var i =0
+                   function autoChange() {
+                       
+                    if(i>=1 && i<=6){
+                             slide[i-1].classList.add('slide');
+                              dot[i-1].classList.remove('white');
+                          }
+                        slide[i].classList.remove('slide');
+                          dot[i].classList.add('white');
+                          
+                          
+                          i++
+
+                   
+                          
+                       
+                        
+                       
+                       if(i>=5){
+
+                          setTimeout(function(){
+                              slide[4].classList.add('slide');
+                              dot[4].classList.remove('white');
+                          },5000) 
+                           i=0
+                           
+                           }
+                       setTimeout(autoChange, 5000);
+                   }
+           autoChange()        
+               </script>
 
  <style>
+     .slide {
+         display: none;
+     }
     .dot {
         position: relative;
-        bottom: 25px;
+        bottom: 2rem;
   cursor: pointer;
-  height: 1rem;
-  width: 1rem;
-  margin: 0 5px;
+  height: 0.8rem;
+  width: 0.8rem;
+  margin: 0 6px;
   background-color: rgb(185, 185, 185, 0.7);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+}
+.white{
+    background-color:rgb(224, 224, 224);
 }
      .titleLe{
          display: none;

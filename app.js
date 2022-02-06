@@ -113,6 +113,10 @@ const getpopularfilm = axios({
       const upcoming = await getupcomingfilm;
       const main = popular[1]
       const id = main.id;
+      const mm = []
+    for(i=1;i<6; i++){
+      mm.push(popular[i])
+    }
    
       axios({
         method: 'get',
@@ -129,7 +133,7 @@ const getpopularfilm = axios({
        getVietnamese =  final[0].data
     }
        
-       res.render('home', {main:main, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese})
+       res.render('home', {main:mm, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese})
       })
    
       
