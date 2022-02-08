@@ -10,6 +10,7 @@ const moviedb = new MovieDb('2c6f79941461abf6df2d3d5cabfc9f81')
 var cookie = require('cookie');
 let COOKIE_OPTIONS = { httpOnly: true, sameSite: 'None', secure: true };
 const session = require('express-session');
+const favicon = require('express-favicon');
 var cookieParser = require('cookie-parser');
 app.use(cookieParser())
 
@@ -28,10 +29,11 @@ const sessionConfig = {
 
 
 app.use(session(sessionConfig));
+// app.use(favicon(__dirname + 'src/public/favicon.ico'));
 
+// app.use(express.static(path.join(__dirname, 'src/public')))
+// app.use('/logo1.png', express.static('src/public/logo1.png'));
 
-
-app.use(express.static(path.join(__dirname, 'public')))
 app.set('views',path.join(__dirname, 'src/resources/views'))
 console.log(path.join(__dirname, 'src/resources/views'))
 app.use(express.urlencoded({
