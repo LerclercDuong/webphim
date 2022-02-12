@@ -52,6 +52,12 @@ app.get('/', function (req, res){
   //   method: 'get',
   //   url: `https://api.themoviedb.org/3/movie/${req.query.id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
   // })
+  const getgenres = axios({
+    method: 'get',
+    url: 'https://api.themoviedb.org/3/genre/movie/list?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US'
+  }).then(function (response){
+    return response.data.genres;
+  })
 const getpopularfilm = axios({
     method: 'get',
     url: 'https://api.themoviedb.org/3/movie/popular?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&page=1'
@@ -113,6 +119,7 @@ const getpopularfilm = axios({
       const action = await getactionfilm;
       const toprated = await gettopratedfilm;
       const upcoming = await getupcomingfilm;
+      const genres = await getgenres;
       const main = popular[1]
       const id = main.id;
       const mm = []
@@ -135,7 +142,7 @@ const getpopularfilm = axios({
        getVietnamese =  final[0].data
     }
        
-       res.render('home', {main:mm, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese})
+       res.render('home', {main:mm, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese, genres:genres})
       })
    
       

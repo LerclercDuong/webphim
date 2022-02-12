@@ -38,6 +38,16 @@
   <span class="dot" onclick="currentSlide(4)"></span>
 </div>
   
+  <div style="width:80%; margin-left:1%;">
+      {{#each genres}} 
+      <a  style="display:inline-block;" href="/">
+      <div class="genre" style="">{{this.name}}</div>
+      </a>
+
+      
+
+      {{/each}}
+  </div>
 <br>
 <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Phổ biến  
@@ -199,6 +209,19 @@
                </script>
 
  <style>
+ .genre{
+     display:inline-block; 
+     margin:0.2rem 0.5rem; 
+     background-color:rgb(53, 53, 53);
+      border-radius:5px; 
+      border:#ff9900 solid 1.5px;
+       padding: 0 5px; color:#ffffff;"
+ }
+ .genre:hover{
+     background-color:rgb(255, 153, 0);
+     color:#252525;
+ }
+
     .fade2 {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.2s;
