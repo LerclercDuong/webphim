@@ -1,9 +1,9 @@
 
 <div > 
-    <div  style="margin: 1rem auto;   width:50rem; height:30rem;">
+    <div class="lock"  style="margin: 1rem auto;   width:60rem; height:35rem;">
         <iframe  id="iframe" style="display:block; width: 100%; height:100%; margin: 1rem auto; " src="{{url}}" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<div style="color:white; width:50rem;margin: 1rem auto; background-color: rgb(27, 27, 27); padding:0.5rem; box-sizing: border-box;">
+<div class="lock"  style="color:white; width:60rem;margin: 1rem auto; background-color: rgb(27, 27, 27); padding:0.5rem; box-sizing: border-box;">
 <h3 style="margin-bottom:1rem; color:rgb(238, 186, 44);">{{vietnamese.title}}</h3>
 <div style="color:white; font-size:1rem;">
      <h5 style="font-weight: 400;"> <span style="font-weight:700;">Tổng quan:   </span>  {{vietnamese.overview}}</h5>
@@ -13,6 +13,10 @@
    
 </div>
 </div>
+<div style="width:100%; text-align:center">
+    <div   style="background-color:white;  width:60rem;" class="fb-comments lock" data-href="https://webphim1.herokuapp.com/watch?id={{details.id}}" data-colorscheme="dark"  data-width="800" data-numposts="5"></div>
+</div>
+
 <br>
 <br>
 <span id="more" class="ml-2 mt-2" style="color: #ffffff; font-size:1.5rem; font-weight:600; margin-top:10rem;">
@@ -138,6 +142,9 @@
        
       width: 100% !important;
       height:37rem !important;
+     }
+     .lock{
+         width: 100% !important;
      }
 }
 </style>
