@@ -47,6 +47,7 @@ app.set('view engine','handlebars')
 
 // // mới
 app.get('/', function (req, res){
+  const title = "PHIM MỚI | PHIM HD | PHIMNEWS | PHIM CHIẾU RẠP "
   // getPOPULARFILM
   // const getVN = axios({
   //   method: 'get',
@@ -142,7 +143,7 @@ const getpopularfilm = axios({
        getVietnamese =  final[0].data
     }
        
-       res.render('home', {main:mm, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese, genres:genres})
+       res.render('home', {main:mm, popular:popular, action:action, toprated:toprated, upcoming:upcoming, vietsub:getVietnamese, genres:genres, title:title})
       })
    
       
@@ -172,6 +173,7 @@ const getpopularfilm = axios({
  })
 
 app.get('/watch', (req,res) => {
+  
  const getVN = axios({
     method: 'get',
     url: `https://api.themoviedb.org/3/movie/${req.query.id}/translations?api_key=2c6f79941461abf6df2d3d5cabfc9f81`
@@ -206,6 +208,7 @@ const getDetail = axios({
     const details = await getDetail;
     const similar = await getsimilar;
     const id = req.query.id
+    const title = "Xem phim" + ' '+ details.title
     var getVietnamese = {}
     if(final[0] === undefined){
      getVietnamese = details
@@ -214,7 +217,7 @@ const getDetail = axios({
     }
   const url = `https://www.2embed.ru/embed/tmdb/movie?id=${id}`
   res.cookie('Set-Cookie',{domain:'https://www.2embed.ru' ,SameSite: 'none', Secure: true})
-    res.render('watch',{similar:similar, url:url, details:details, vietnamese: getVietnamese})
+    res.render('watch',{similar:similar, url:url, details:details, vietnamese: getVietnamese, title:title})
     
 }
 renderFilm()

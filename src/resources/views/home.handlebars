@@ -15,7 +15,7 @@
                                 {{this.title}}
                               
                             </div>
-                       <span style="font-size:1rem; padding-top:1rem; padding-bottom:0.5rem;">{{this.overview}}</span>
+                       <span class="textlimit" style="font-size:1rem; padding-top:1rem; padding-bottom:0.5rem;">{{this.overview}}</span>
                             <div class="">
                                 <a href="/watch?id={{this.id}}" class="btn btn-hover mt-3">
                                     <i class="bx bxs-right-arrow"></i>
@@ -49,10 +49,10 @@
       {{/each}}
   </div>
 <br>
-<span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
+<span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Phổ biến  
 </span>
-<a class="mr-2 mt-2" href="/phobien?page=1" style="float:right;"> <span class="xemthem" style="color: #ffeb3b; font-size:1rem; " >Xem thêm</span></a>
+<a class="mr-2 mt-2 " href="/phobien?page=1" style="float:right;"> <span class="xemthem" style="color: #ffeb3b; font-size:1rem; " >Xem thêm</span></a>
                <div class="list" style="display:flex; justify-content:space-between;">
                   
                    {{#each popular}}
@@ -62,7 +62,14 @@
                     <a href="/watch?id={{this.id}}" style="" >
                           <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="{{this.title}}" style="position:relative; width:16rem; height:20rem; " >
                       <div style="width:100%; position:absolute; top:-0.9rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#f9fd18; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top: 0.425rem; ">{{this.vote_average}}</h5>  </div>   
-                            <h5 class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">  {{this.title}}  </h5>
+                           <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
+                              <h5  class="tenphim">  {{this.title}}  </h5>
+                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
+                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
+                           </div>
+                            
                     </a>
                 
                     {{!-- <div >
@@ -78,7 +85,7 @@
  {{!-- TOPRATED --}}
 <br>
 
-               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
+               <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Top rated 
 </span>
 <a class="mr-2 mt-2" href="/toprated?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec3e; font-size:1rem; " >Xem thêm</span></a>
@@ -91,10 +98,13 @@
                     <a href="/watch?id={{this.id}}">
                           <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style=" position:relative; width:16rem; height:20rem; ">
                           <div style="width:100%; position:absolute; top:-0.9rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#ffec40; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top:0.425rem;">{{this.vote_average}}</h5>  </div>
-                 <h5 class="titleLe" style="position:absolute; color:rgb(255, 220, 62); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 1rem;">  {{this.title}}  </h5>
-                          {{!-- <div style=" background-color:#eeda26; color:#ffffff; position:absolute;bottom: 8px; left: 16px;">{{this.title}}</div> --}}
-                       
-                    </a>
+                <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
+                              <h5  class="tenphim">  {{this.title}}  </h5>
+                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
+                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
+                           </div>
                   
                 </div>
                
@@ -103,7 +113,7 @@
       {{!-- Phim 2 --}}
 
       <br>
-               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
+               <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Phim lẻ hay nhất
 </span>
 <a class="mr-2 mt-2" href="/bestaction?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec40; font-size:1rem; " >Xem thêm</span></a>
@@ -116,8 +126,13 @@
                     <a href="/watch?id={{this.id}}">
                           <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="position:relative; width:16rem; height:20rem;">
                           <div style="width:100%; position:absolute; top:-0.85rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#e7ff5f; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top:0.425rem;">{{this.vote_average}}</h5>  </div>
-                         <h5 class="titleLe" style="position:absolute; color:rgb(255, 220, 62); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 1rem;">  {{this.title}}  </h5>
-                    </a>
+                         <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
+                              <h5  class="tenphim">  {{this.title}}  </h5>
+                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
+                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
+                           </div>
                   
                     {{!-- <div >
                         <div style="color: #ffffff;">
@@ -136,7 +151,7 @@
 
 
                <br>
-               <span class="ml-2 mt-2" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
+               <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
    Sắp ra mắt 
 </span>
 <a class="mr-2 mt-2" href="/upcoming?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffed4a; font-size:1rem; " >Xem thêm</span></a>
@@ -149,10 +164,13 @@
                     <a href="/watch?id={{this.id}}">
                           <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="position:relative; width:16rem; height:20rem; ">
                           <div style="width:100%; position:absolute; top:-0.85rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#e5ff6f; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top:0.425rem;">{{this.vote_average}}</h5>  </div>
-                           <h5 class="titleLe" style="position:absolute; color:rgb(255, 208, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 1rem;">  {{this.title}}  </h5>
-                          {{!-- <div style=" background-color:#eeda26; color:#ffffff; position:absolute;bottom: 8px; left: 16px;">{{this.title}}</div> --}}
-                       
-                    </a>
+                          <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
+                              <h5  class="tenphim">  {{this.title}}  </h5>
+                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
+                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
+                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
+                           </div>
                   
                 </div>
                
@@ -209,6 +227,19 @@
                </script>
 
  <style>
+     
+ .textlimit {
+      overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 7; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+ }
+     .bold{
+         font-weight: 700;
+         
+     }
  .genre{
      display:inline-block; 
      margin:0.3rem 0.5rem; 
@@ -260,6 +291,10 @@
          display: none;
          transition-delay: 2s;
          background-color:rgba(0, 0, 0, 0.8);
+     }
+     .diemso {
+         display: none;
+         transition-delay: 2s;
      }
  .titleLe:hover{
       transition-delay: 2s;
@@ -451,7 +486,13 @@
     {{!-- background-color: rgb(255, 208, 0) ; --}}
    
 }
-
+.film-card:hover .diemso{
+    transform: scale(1.2);
+     transition-delay:1s;
+    display:block;
+    {{!-- background-color: rgb(255, 208, 0) ; --}}
+   
+}
 .movie-item-content {
     position: absolute;
     bottom: 0;
@@ -735,9 +776,19 @@ a.movie-item:hover {
 
 
     @media only screen and (max-width: 480px) {
-    {{!-- .xemthem{
+    .xemthem{
         font-size: 2rem !important;
-    } --}}
+      
+    }
+    .status{
+        font-size: 3rem !important;
+    }
+    .detailsize{
+        font-size: 1.3rem !important;
+    }
+    .tenphim{
+        font-size: 2.7rem !important;
+    }
    .score{
        width:3.6rem !important;
        height:3rem !important;
