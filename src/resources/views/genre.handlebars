@@ -1,67 +1,16 @@
-  <div class="hero-section">
-        <!-- HERO SLIDE -->
-        <div class="hero-slide">
-            <div class="owl-carousel carousel-nav-center" id="hero-carousel">
-                <!-- SLIDE ITEM -->
-                 {{#each main}}
-                <div class="slide myslide hero-slide-item fade2" style=""> 
-                   
-                    <img src='https://image.tmdb.org/t/p/original/{{this.backdrop_path}}' alt="">
-                   
-                    <div class="overlay"></div>
-                    <div class="hero-slide-item-content">
-                        <div class="item-content-wraper">
-                           <div style="margin-left:0.4rem; color:rgb(0, 217, 255);">Now streaming . . .  </div> 
-                            <div class="" style="font-size:3rem; margin-bottom:0.2rem; max-width:90%; max-height:80%; font-weight:600;">
-                                {{this.title}}
-                              
-                            </div>
-                       <span class="textlimit" style="font-size:1rem; padding-top:1rem; padding-bottom:0rem;">{{this.overview}}</span>
-                            <div class="">
-                                <a href="/watch?id={{this.id}}" class="btn btn-hover mt-3">
-                                    <i class="bx bxs-right-arrow"></i>
-                                    <span style="padding-top:0.3rem;">Xem ngay</span>
-                                </a> 
-                               
-                            </div>
-                        </div>
-                        <img id="poster2" style="width:26.3%; height:90%; position:relative; margin-top:2%; margin-left:22%; " src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="">
-              
-                    </div>
-                  
-                </div>
-               {{/each}}
-  <div style="text-align:center">
-  <span class="dot" onclick="currentSlide(0)"></span>
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(4)"></span>
-</div>
-  
-  <div style="width:80%; margin-left:1%;">
-      {{#each genres}} 
-      <a  style="display:inline-block;" href="/genres?kind={{this.name}}&id={{this.id}}&page=1">
-      <div class="genre" style="">{{this.name}}</div>
-      </a>
-
-      
-
-      {{/each}}
-  </div>
 <br>
 <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
-   Phổ biến  
+   Genre: {{genre}} 
 </span>
-<a class="mr-2 mt-2 " href="/phobien?page=1" style="float:right;"> <span class="xemthem" style="color: #ffeb3b; font-size:1rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; justify-content:space-between;">
+
+               <div class="list" style="display:flex; justify-content:space-between; flex-wrap: wrap;">
                   
-                   {{#each popular}}
-            <div class="film-card-container" style="margin:0 0.4rem; position:relative;" >
+                   {{#each movie}}
+            <div class="film-card-container" style="margin:0.4rem 0.4rem; position:relative;" >
                 <!-- MOVIE ITEM -->
                 <div class="film-card" style="">
                     <a href="/watch?id={{this.id}}" style="" >
-                          <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="{{this.title}}" style="position:relative; width:16rem; height:20rem; " >
+                          <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="{{this.title}}" style="position:relative; width:18rem; height:25rem; " >
                       <div style="width:100%; position:absolute; top:-0.9rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#f9fd18; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top: 0.425rem; ">{{this.vote_average}}</h5>  </div>   
                            <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
                               <h5  class="tenphim">  {{this.title}}  </h5>
@@ -83,153 +32,73 @@
                
             </div> {{/each}}
                </div>
- {{!-- TOPRATED --}}
-<br>
 
-               <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
-   Top rated 
-</span>
-<a class="mr-2 mt-2" href="/toprated?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec3e; font-size:1rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; justify-content:space-between;   ">
-                  
-                   {{#each toprated}}
-            <div  class="film-card-container" style="margin:0 0.5rem;  position:relative;" >
-                <!-- MOVIE ITEM -->
-                <div class="film-card" style=" ">
-                    <a href="/watch?id={{this.id}}">
-                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style=" position:relative; width:16rem; height:20rem; ">
-                          <div style="width:100%; position:absolute; top:-0.9rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#ffec40; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top:0.425rem;">{{this.vote_average}}</h5>  </div>
-                <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
-                              <h5  class="tenphim">  {{this.title}}  </h5>
-                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
-                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
-                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
-                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
-                           </div>
-                  
-                </div>
-               
-            </div> {{/each}}
-               </div>
-      {{!-- Phim 2 --}}
-
-      <br>
-               <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
-   Phim lẻ hay nhất
-</span>
-<a class="mr-2 mt-2" href="/bestaction?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffec40; font-size:1rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; justify-content:space-between; ">
-                  
-                   {{#each action}}
-            <div  class="film-card-container" style="margin:0 0.5rem;  position:relative;" >
-                <!-- MOVIE ITEM -->
-                <div class="film-card" style=" ">
-                    <a href="/watch?id={{this.id}}">
-                          <img src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="position:relative; width:16rem; height:20rem;">
-                          <div style="width:100%; position:absolute; top:-0.85rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#e7ff5f; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top:0.425rem;">{{this.vote_average}}</h5>  </div>
-                         <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
-                              <h5  class="tenphim">  {{this.title}}  </h5>
-                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
-                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
-                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
-                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
-                           </div>
-                  
-                    {{!-- <div >
-                        <div style="color: #ffffff;">
-                           {{this.title}}
-                        </div>
-                      
-                    </div> --}}
-                </div>
-               
-            </div> {{/each}}
+               <div id="pagenumber" style="display:flex; justify-content:center; margin-top:3rem;">
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page=1">1</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page==2">2</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page==3">3</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page==4">4</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page==5">5</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page==6">6</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page=7">7</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page=8">8</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page=9">9</a>
+                   <a class="tagname" href="/genres?kind={{genres}}&id={{genreid}}&page=10">10</a>
                </div>
 
 
+<style>
+#pagenumber a{
+ color: #f8f8f8;
+ margin: 0 1rem;
+ padding: 0 0.4rem;
+}
+.yellow {
+    border: 2px solid rgba(255, 223, 40, 0.904);
+    border-radius:3px;
+  
+}
+.film-card img{
+    transition: transform 0.3s linear;
+}
+.film-card:hover img {
+    transform: scale(1.2);
+}
 
 
+  @media only screen and (max-width: 480px) {
+    
+ html {
+     font-size:9px;
+ }
+.film-card-container{
+    width: 48% !important;
+    
+      
+
+}
+.list{
+        display:flex;
+    
+        margin:1px;
+    }
+    .film-card{
+         max-width: 100% !important;
+         flex-basis: 50% !important;
+         flex-grow: 5 !important;
+    }
+   .posters{
+       
+   }
+    .film-card img{
+         margin-top: 1rem;
+      width: 100% !important;
+      height:30rem !important;
+     }
+}
 
 
-               <br>
-               <span class="ml-2 mt-2 status" style="color: #ffffff; font-size:1.7rem; font-weight:600;">
-   Sắp ra mắt 
-</span>
-<a class="mr-2 mt-2" href="/upcoming?page=1" style="float:right;"> <span class="xemthem"  style="color: #ffed4a; font-size:1rem; " >Xem thêm</span></a>
-               <div class="list" style="display:flex; justify-content:space-between; ">
-                  
-                   {{#each upcoming}}
-            <div  class="film-card-container" style="margin:0 0.5rem;  position:relative;" >
-                <!-- MOVIE ITEM -->
-                <div  class="film-card" style="  ">
-                    <a href="/watch?id={{this.id}}">
-                          <img class="posters" src='https://image.tmdb.org/t/p/original/{{this.poster_path}}' alt="" style="position:relative; width:16rem; height:20rem; ">
-                          <div style="width:100%; position:absolute; top:-0.85rem;"> <h5 class="score" style="margin: 0 auto; width:2.2rem; height:1.7rem; border-radius:40%; text-align:center; background-color:#e5ff6f; color:rgb(36, 36, 36); z-index:3;  box-sizing:border-box; font-weight:700;   font-size:0.8rem; padding-top:0.425rem;">{{this.vote_average}}</h5>  </div>
-                          <div class="titleLe" style="position:absolute; color:rgb(255, 217, 0); text-align:center; top: 0px;  z-index:3; height:100%; width:100%; transition-delay: 2s; font-weight:700; padding:0.2rem 0.5rem; box-sizing:border-box;">
-                              <h5  class="tenphim">  {{this.title}}  </h5>
-                              <div class="dropdown-divider" style="width:50%; margin: 0 auto;"></div>
-                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">IMDB rate: </span>{{this.vote_average}}</h6>
-                              <h6 class="detailsize" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); " ><span class="bold">Release Date: </span> {{this.release_date}}</h6>
-                              <h6  class="detailsize textlimit" style="font-size:0.8rem; font-weight:400; color:rgb(241, 241, 241); margin-top:1rem;" ><span class="bold">Overview: </span> {{this.overview}}</h6>
-                           </div>
-                  
-                </div>
-               
-            </div> {{/each}}
-               </div>
-
- 
-
-               <script>
-                  
-                   const dot = document.getElementsByClassName('dot');
-                   const slide = document.getElementsByClassName('myslide');
-                 
-                   var i =0
-                   function autoChange() {
-                       
-                    if(i>=1 && i<=6){
-                             slide[i-1].classList.add('slide');
-                              dot[i-1].classList.remove('white');
-                          }
-                        slide[i].classList.remove('slide');
-                          dot[i].classList.add('white');
-                          
-                          
-                          i++
-
-                   
-                          
-                       
-                        
-                       
-                       if(i>=5){
-
-                          setTimeout(function(){
-                              slide[4].classList.add('slide');
-                              dot[4].classList.remove('white');
-                          },9000) 
-                           i=0
-                           
-                           }
-                       setTimeout(autoChange, 9000);
-                   }
-                   function urrentSlide(n){
-                       for(var i=0; i<slide.length; i++){
-                           slide[i].classList.add('slide')
-                           dot[i].classList.remove('white');
-                       }
-                        slide[n].classList.remove('slide');
-                              dot[n].classList.add('white');
-                              
-                          var   i = n;
-                   }
-           autoChange()        
-               </script>
-
- <style>
-     
- .textlimit {
+.textlimit {
       overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
@@ -246,7 +115,7 @@
      margin:0.3rem 0.5rem; 
      background-color:rgb(53, 53, 53);
       border-radius:5px; 
-      border:#ffd900 solid 0.7px;
+      border:#336e91 solid 1px;
        padding: 0 5px; color:#ffffff;"
  }
  .genre:hover{
@@ -777,9 +646,6 @@ a.movie-item:hover {
 
 
     @media only screen and (max-width: 480px) {
-        .genre{
-            font-size: 1.7rem !important;
-        }
     .xemthem{
         font-size: 2rem !important;
       
@@ -853,5 +719,12 @@ a.movie-item:hover {
     margin-left: 5% !important;
 }
 }
- </style>
+</style>
 
+<script>
+    const page = {{page}}
+  
+    const plist = document.getElementsByClassName('tagname')
+    plist[page-1].classList.add('yellow')
+
+</script>

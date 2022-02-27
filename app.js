@@ -329,6 +329,23 @@ app.get('/search',(req,res) => {
              }
              renderFilm()
 })
+app.get('/genres',(req,res)=>{
+  
+  const genre = req.query.kind
+  const genreid = req.query.id
+  const page = req.query.page
+  const title = `Watch ${genre} movies on CHILLPHIMNEW`
 
+  axios({
+    method: 'get',
+    url: `https://api.themoviedb.org/3/discover/movie?api_key=2c6f79941461abf6df2d3d5cabfc9f81&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreid}&with_watch_monetization_types=flatrate`
+  })
+  .then(function(response) {
+       const movie = response.data.results
+       res.render('genre',{genre , movie,genreid,page, title})
+  })
+  
+    
+})
                 
 app.listen(port)
