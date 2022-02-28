@@ -14,7 +14,7 @@ const favicon = require('express-favicon');
 var cookieParser = require('cookie-parser');
 app.use(cookieParser())
 
-
+app.set('trust proxy', true);
 
 const sessionConfig = {
   secret: 'MYSECRET',
@@ -44,6 +44,15 @@ app.use(express.json())
 app.engine('handlebars', handlebars())
 app.set('view engine','handlebars')
 
+
+app.use((req, res, next) => {
+  const host = req.header('host');
+  if (host.match(/^www\..*/i)) {
+      next();
+  } else {
+      res.redirect(301, `${req.protocol}://www.${host}${req.url}`);
+  }
+});
 
 // // mới
 app.get('/', function (req, res){
