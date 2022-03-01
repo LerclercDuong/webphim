@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 
 // // mới
 app.get('/', function (req, res){
-  const title = "PHIM MỚI | PHIM HD | PHIMNEWS | PHIM CHIẾU RẠP "
+  const title = "CHILLPHIMNEW.XYZ | XEM PHIM MỚI | PHIM HD | PHIMNEWS | PHIM CHIẾU RẠP "
   // getPOPULARFILM
   // const getVN = axios({
   //   method: 'get',
@@ -217,7 +217,7 @@ const getDetail = axios({
     const details = await getDetail;
     const similar = await getsimilar;
     const id = req.query.id
-    const title = "Xem phim" + ' '+ details.title
+    const title = "Xem phim" + ' '+ details.title + ''+ "trên Chillphimnew.xyz"
     var getVietnamese = {}
     if(final[0] === undefined){
      getVietnamese = details
@@ -343,7 +343,7 @@ app.get('/genres',(req,res)=>{
   const genre = req.query.kind
   const genreid = req.query.id
   const page = req.query.page
-  const title = `Watch ${genre} movies on CHILLPHIMNEW`
+  const title = `Watch ${genre} movies on CHILLPHIMNEW.XYZ`
 
   axios({
     method: 'get',
