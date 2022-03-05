@@ -217,7 +217,7 @@ const getDetail = axios({
     const details = await getDetail;
     const similar = await getsimilar;
     const id = req.query.id
-    const title = "Xem phim" + ' '+ details.title + ''+ "trên Chillphimnew.xyz"
+    const title = "Xem phim" + ' '+ details.title + ' '+ "trên Chillphimnew.xyz"
     var getVietnamese = {}
     if(final[0] === undefined){
      getVietnamese = details
