@@ -10,7 +10,7 @@ const moviedb = new MovieDb('2c6f79941461abf6df2d3d5cabfc9f81')
 var cookie = require('cookie');
 let COOKIE_OPTIONS = { httpOnly: true, sameSite: 'None', secure: true };
 const session = require('express-session');
-const favicon = require('express-favicon');
+const favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 app.use(cookieParser())
 
@@ -26,7 +26,8 @@ const sessionConfig = {
     secure: true
   }
 };
-
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')))
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.use(session(sessionConfig));
 // app.use(favicon(__dirname + 'src/public/favicon.ico'));
