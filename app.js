@@ -26,7 +26,7 @@ const sessionConfig = {
     secure: true
   }
 };
-app.use(favicon(path.join(__dirname, 'public', 'favicon.png')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.use(session(sessionConfig));
@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 
 // // mới
 app.get('/', function (req, res){
-  const title = "CHILLPHIMNEW.XYZ | XEM PHIM MỚI | PHIM HD | PHIMNEWS | PHIM CHIẾU RẠP "
+  const title = "Chillphimnew.xyz | Xem Phim mới | PHIM HD | Watch full HD movies | Phim chiếu rạp | Theatre movies "
   // getPOPULARFILM
   // const getVN = axios({
   //   method: 'get',
@@ -218,7 +218,7 @@ const getDetail = axios({
     const details = await getDetail;
     const similar = await getsimilar;
     const id = req.query.id
-    const title = "Xem phim" + ' '+ details.title + ' '+ "trên Chillphimnew.xyz"
+    const title = "Xem phim" + ' '+ details.title + ' '+ "trên Chillphimnew.xyz | phim hd | Phim chiếu rạp hay"
     var getVietnamese = {}
     if(final[0] === undefined){
      getVietnamese = details
@@ -344,7 +344,7 @@ app.get('/genres',(req,res)=>{
   const genre = req.query.kind
   const genreid = req.query.id
   const page = req.query.page
-  const title = `Watch ${genre} movies on CHILLPHIMNEW.XYZ`
+  const title = `Watch ${genre} movies on CHILLPHIMNEW.XYZ | Phim mới | Phim chiếu rạp hay`
 
   axios({
     method: 'get',
