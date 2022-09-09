@@ -225,7 +225,7 @@ const getDetail = axios({
     }else {
        getVietnamese =  final[0].data
     }
-  const url = `https://www.2embed.ru/embed/tmdb/movie?id=${id}`
+  const url = `https://2embed.org/embed/${id}`
   res.cookie('Set-Cookie',{domain:'https://www.2embed.ru' ,SameSite: 'none', Secure: true})
     res.render('watch',{similar:similar, url:url, details:details, vietnamese: getVietnamese, title:title})
     
